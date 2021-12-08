@@ -26,9 +26,9 @@ def gen_poa_challenge(file_in, dir_out, number):
         with open('{}/poa-c{:03}.txt'.format(dir_out, challenge + 1), 'w') as f:
             b1 = challenge * BLOCK_SIZE
             b2 = (challenge + 1) * BLOCK_SIZE
-            p2 = pt_bytes[b2: b2 + BLOCK_SIZE]
+            p2 = pt_bytes[b2:b2 + BLOCK_SIZE]
 
-            print(ct_bytes[b1: b2 + BLOCK_SIZE].hex(), file=f)
+            print(ct_bytes[b1:b2 + BLOCK_SIZE].hex(), file=f)
             print('\nhashlib.sha3_224(p2).hexdigest()', file=f)
             print(hashlib.sha3_224(p2).hexdigest(), file=f)
 

@@ -1,13 +1,10 @@
 import requests
 
-# input file containing the class ciphertext
-FILE_IN = '../ciphertext.txt'
+# input file containing the challenge ciphertext
+FILE_IN = '../poa-challenges/poa-cXXX.txt'
 
-# output file that will contain the plaintext corresponding to the assigned challenge block to decrypt
-FILE_OUT = '../poa-c002.txt'
-
-# student challenge number corresponding to the assigned challenge block to decrypt
-CID = 2
+# output file that will contain the plaintext corresponding second block of the challenge ciphertext
+FILE_OUT = '../poa-cXXX.txt'
 
 # CBC-mode block size in bits
 BLOCK_SIZE = 16
@@ -27,9 +24,9 @@ def validate(c1, c2):
 
 def main():
     with open(FILE_IN) as f:
-        ciphertext = bytes.fromhex(f.read())
-        c1 = ciphertext[(CID - 2) * BLOCK_SIZE:(CID - 2) * BLOCK_SIZE + BLOCK_SIZE]
-        c2 = ciphertext[(CID - 1) * BLOCK_SIZE:(CID - 1) * BLOCK_SIZE + BLOCK_SIZE]
+        ciphertext = bytes.fromhex(f.readline())
+        c1 = ciphertext[:BLOCK_SIZE]
+        c2 = ciphertext[BLOCK_SIZE:]
 
     mask_byte2 = (0x100).to_bytes(BLOCK_SIZE, 'big')
     delta = [0 for _ in range(BLOCK_SIZE)]
