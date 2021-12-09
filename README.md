@@ -28,7 +28,7 @@ The only file that the operator of the server should be concerned about in the b
 PORT=3001\
 FRONTEND_IP=10.0.0.2:3000\
 SECRET=a3b93dad09e1240c90aff28a036ca443\
-IV=70b3903e30bbf7587c9352b2e3dce51b\
+IV=70b3903e30bbf7587c9352b2e3dce51b
 
 #### Launching Instructions
 1) npm install
