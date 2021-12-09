@@ -7,7 +7,7 @@
 
 Server launching instructions:
 1. Install [Node.js](https://nodejs.org/en/download/)
-2. Ensure that the `.env` and `Frontend/src/utils/utils.js` files exist and have the correct information.
+2. Ensure that the `Backend/.env` and `Frontend/src/utils/utils.js` files exist and have the correct information.
 3. Launch the backend. Execute the following commands in the project root:
 ```
 > cd ./Backend
