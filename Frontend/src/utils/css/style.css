@@ -1,0 +1,28 @@
+:root {
+
+  --color-dark: #424854;
+  --color-medium: #8B99B2;
+  --color-medium-light: #D9E1F5;
+  --color-light: #e3eaed;
+  --color-accent: #B2A079;
+  --color-accent-light: #FFF5E0;
+  --background-color: #F9FBFF;
+
+
+  --text-primary: #8B99B2;
+  --text-secondary: #eeeeee;
+
+  --background: #F0EFEE;
+  --dark: #222;
+  --medium: #444;
+  --light: #ddd;
+  --accent1: #BF564B;
+  --accent2: #FF8A7D;
+
+  --white: #f1f1f1;
+
+  --status-good: #5B8266;
+  --status-mid: #f7c073;
+  --status-urgent: #D45844;
+  --status-idle: #596c73;
+}
