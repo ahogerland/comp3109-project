@@ -3,79 +3,18 @@
 - explanation of a "Padding Oracle Attack" using CBC mode and the PKCS7 padding scheme
 
 ## Getting Started
-The server comes in two seperate directories. They are as listed:
+*This is a quick-start guide for running the server. See the [Oracle Server](#oracle-server) section for more information.*
 
-### Backend
-This will accept any requests from the frontend which is hosting the webpage, or students can make http requests directly to the backend as well. The purpose of this directory is to decrypt incoming messages and checking their padding for the oracle padding attack. The directory structure is as follows:
-
--Backend\
-  --API_Gateways\
-    ----Student_Gateway.js (This file is used to provide the route for the student along with a precursory validation of the submitted information as part of the HTTP request)\
-  --Helpers\
-    ----asyncHandler.js (This file contains code to allow express routes to handle async function calls)\
-  --Services\
-    ----Student\
-      ------Student_DB.js (This file would create transaction with a database if it existed, however instead it calls a decryption function to verify the padding of the ciphertext\
-      ------Student_Service.js (This file is used to seperate the database from the rest of the code in case additional work needs to be done)\
-  --.env (contains all of the configurable information for the server)\
-  --app.js (the file that launches the server along with creating the middleware for routing)\
-  --package-lock.json\
-  --package.json
-
-#### .env
-The only file that the operator of the server should be concerned about in the backend would be the .env file which contains all of the configurable information for the server. If this file does not exist you will need to add it to the directory such that the backend folder looks like:
-
-PORT=3001\
-FRONTEND_IP=10.0.0.2:3000\
-SECRET=a3b93dad09e1240c90aff28a036ca443\
-IV=70b3903e30bbf7587c9352b2e3dce51b
-
-#### Launching Instructions
-1) npm install
-2) ensure that the .env file exists and has the correct information
-3) npm run dev
-
-### Frontend
-This directory works to serve a user-friendly webpage that students can submit their oracle padding attack attempts through to the backend. The directory structure is as follows:
-
--Frontend\
-  -- public\
-    ----favicon.ico\
-    ----index.html\
-    ----robots.txt\
-  -- src\
-    ----components\
-      ------InputComponent\
-        --------index.js\ (contains the code to display the input field for the webpage)
-      ------index.js\
-    ----pages\
-      ------HomePage\
-        --------index.js\ (calls the input component)
-      ------index.js\
-    ----utils\
-      ------css\
-        --------forms.css\
-        --------grid.css\
-        --------main.css\
-        --------modules.css\
-        --------style.css\
-        --------type.css\
-      ------utils.js\ (contains the necessary backend ip to address the backend server)
-    ----App.js\ (stores all of the wbesite routes)
-    ----index.j\
-  --package-lock.json\
-  --package.json
-  
-#### utils.js
-The only file that the operator of the server should be concerned about in the backend would be the utils.js file which contains all of the configurable information for the server. If this file does not exist you will need to add it to the directory such that the backend folder looks like:
-
---utils.js--\
-export const backend_ip = "10.0.0.2:3001" // or whatever is the port and ip of the backend server
-
-#### Launching Instructions
-1) npm install
-2) ensure that the utils.js file exists and has the correct information
-3) npm run start
+Server launching instructions:
+1. Ensure that the `.env` and `Frontend/src/utils/utils.js` files exist and have the correct information.
+2. Execute the following commands in the project root:
+```
+> npm install
+> cd Backend
+> npm run dev
+> cd ../Frontend
+> npm run start
+```
 
 ---
 
@@ -117,3 +56,90 @@ An example generation script can be found in `Scripts/gen-poa-challenge.py`.
 
 ## Solution
 An example solution can be found in `Scripts/solution.py`.
+
+---
+
+# Oracle Server
+The server comes in two seperate directories. They are as listed:
+
+## Backend
+This will accept any requests from the frontend which is hosting the webpage, or students can make http requests directly to the backend as well. The purpose of this directory is to decrypt incoming messages and checking their padding for the oracle padding attack. The directory structure is as follows:
+
+    .
+    ├── Backend
+    │   ├── API_Gateways
+    │   ├── Student_Gateway.js (This file is used to provide the route for the student along with a precursory validation of the submitted information as part of the HTTP request)
+    ├── Helpers
+    │   ├── asyncHandler.js (This file contains code to allow express routes to handle async function calls)
+    ├── Services
+    │   └── Student
+    │       ├── Student_DB.js (This file would create transaction with a database if it existed, however instead it calls a decryption function to verify the padding of the ciphertext
+    │       ├── Student_Service.js (This file is used to seperate the database from the rest of the code in case additional work needs to be done)
+    ├── .env (contains all of the configurable information for the server)
+    ├── app.js (the file that launches the server along with creating the middleware for routing)
+    ├── package-lock.json
+    └── package.json
+
+### .env
+The only file that the operator of the server should be concerned about in the backend would be the .env file which
+contains all of the configurable information for the server. If this file does not exist you will need to create it in
+the root directory with the following variables:
+
+```
+PORT=3001
+FRONTEND_IP=10.0.0.2:3000
+SECRET=a3b93dad09e1240c90aff28a036ca443
+IV=70b3903e30bbf7587c9352b2e3dce51b
+```
+
+### Launching Instructions
+1) npm install
+2) ensure that the .env file exists and has the correct information
+3) npm run dev
+
+## Frontend
+This directory works to serve a user-friendly webpage that students can submit their oracle padding attack attempts through to the backend. The directory structure is as follows:
+
+    .
+    ├── Frontend
+    ├── public
+    │   ├── favicon.ico
+    │   ├── index.html
+    │   └── robots.txt
+    ├── src
+    │   ├── components
+    │   │   ├── InputComponent
+    │   │   │   └── index.js (contains the code to display the input field for the webpage)
+    │   │   └── index.js
+    │   ├── pages
+    │   │   ├── HomePage
+    │   │   │   └── index.js (calls the input component)
+    │   │   └── index.js
+    │   ├── utils
+    │   │   ├── css
+    │   │   │   ├── forms.css
+    │   │   │   ├── grid.css
+    │   │   │   ├── main.css
+    │   │   │   ├── modules.css
+    │   │   │   ├── style.css
+    │   │   │   └── type.css
+    │   │   └── utils.js (contains the necessary backend ip to address the backend server)
+    │   ├── App.js (stores all of the wbesite routes)
+    │   └── index.j
+    ├── package-lock.json
+    └── package.json
+  
+### utils.js
+The only file that the operator of the server should be concerned about in the frontend would be the utils.js file which
+contains all of the configurable information for the server. If this file does not exist you will need to create it as:
+
+```
+// Frontend/src/utils/utils.js
+
+export const backend_ip = "10.0.0.2:3001" // or whatever is the port and ip of the backend server
+```
+
+### Launching Instructions
+1) npm install
+2) ensure that the utils.js file exists and has the correct information
+3) npm run start
