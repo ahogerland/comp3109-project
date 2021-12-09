@@ -88,7 +88,7 @@ This will accept any requests from the frontend which is hosting the webpage, or
 ### .env
 The only file that the operator of the server should be concerned about in the backend would be the .env file which
 contains all of the configurable information for the server. If this file does not exist you will need to create it in
-the root directory with the following variables:
+the Backend root directory with the following variables:
 
 ```
 PORT=3001
