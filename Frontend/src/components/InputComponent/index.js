@@ -44,7 +44,7 @@ export function InputComponent(props) {
             
                         <div class="attempt-data push">
                             <label for="secret">Ciphertext</label>
-                            <Field id="secret" name="secret" placeholder="Secret" type="text"/>
+                            <Field id="secret" name="secret" placeholder="Ciphertext" type="text"/>
                         </div>
             
                         <button type="submit" class="push-1-2">Submit</button>
