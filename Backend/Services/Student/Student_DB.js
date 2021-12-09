@@ -8,7 +8,7 @@ CompareSecret = async (args) => {
     if (!args) return {error: "No arguments were supplied", argumentError: true, responseCode: 400}
     if (!args.secret) return {error: "Secret could not be found", argumentError: true, responseCode: 400}
 
-    // Compare padding attack (Shelled / Alec)
+    // Compare padding attack (Josh / Alec)
 
     // const ciphertext = encryption('My secret message', process.env.SECRET, process.env.IV)
     // console.log(ciphertext)
