@@ -73,13 +73,13 @@ This will accept any requests from the frontend which is hosting the webpage, or
     .
     ├── Backend
     │   ├── API_Gateways
-    .   ├── Student_Gateway.js (This file is used to provide the route for the student along with a precursory validation of the submitted information as part of the HTTP request)
+    .   │   └── Student_Gateway.js (This file is used to provide the route for the student along with a precursory validation of the submitted information as part of the HTTP request)
     .   ├── Helpers
-    .   │   ├── asyncHandler.js (This file contains code to allow express routes to handle async function calls)
+    .   │   └── asyncHandler.js (This file contains code to allow express routes to handle async function calls)
         ├── Services
         │   └── Student
         │       ├── Student_DB.js (This file would create transaction with a database if it existed, however instead it calls a decryption function to verify the padding of the ciphertext
-        │       ├── Student_Service.js (This file is used to seperate the database from the rest of the code in case additional work needs to be done)
+        │       └── Student_Service.js (This file is used to seperate the database from the rest of the code in case additional work needs to be done)
         ├── .env (contains all of the configurable information for the server)
         ├── app.js (the file that launches the server along with creating the middleware for routing)
         ├── package-lock.json
@@ -108,8 +108,8 @@ This directory works to serve a user-friendly webpage that students can submit t
     .
     ├── Frontend
     │   ├── public
-    .   ├── favicon.ico
-    .   ├── index.html
+    .   │   ├── favicon.ico
+    .   │   ├── index.html
     .   │   └── robots.txt
         ├── src
         │   ├── components
