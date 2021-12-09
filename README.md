@@ -106,7 +106,7 @@ HOST = 'http://example.com'
 URL = f'{HOST}/student/attempt'
 
 def validate(ciphertext):
-    return requests.post(URL, data={'ciphertext': ciphertext.hex()}).status_code < 500
+    return requests.post(URL, data={'secret': ciphertext.hex()}).status_code < 500
 
 ciphertext = bytes.fromhex('3348858cabb261b221533429801bee239ec1ec7c853509c8a261fc2b2b2211b0')
 print(validate(ciphertext))
