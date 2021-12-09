@@ -6,13 +6,18 @@
 *This is a quick-start guide for running the server. See the [Oracle Server](#oracle-server) section for more information.*
 
 Server launching instructions:
-1. Ensure that the `.env` and `Frontend/src/utils/utils.js` files exist and have the correct information.
-2. Execute the following commands in the project root:
+1. Install [Node.js](https://nodejs.org/en/download/)
+2. Ensure that the `.env` and `Frontend/src/utils/utils.js` files exist and have the correct information.
+3. Launch the backend. Execute the following commands in the project root:
 ```
+> cd ./Backend
 > npm install
-> cd Backend
 > npm run dev
-> cd ../Frontend
+```
+4. Launch the frontend. Execute the following commands in the project root:
+```
+> cd ./Frontend
+> npm install
 > npm run start
 ```
 
