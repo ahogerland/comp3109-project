@@ -43,7 +43,7 @@ export function InputComponent(props) {
                     <Form>            
             
                         <div class="attempt-data push">
-                            <label for="secret">Secret</label>
+                            <label for="secret">Ciphertext</label>
                             <Field id="secret" name="secret" placeholder="Secret" type="text"/>
                         </div>
             
