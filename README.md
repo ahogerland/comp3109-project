@@ -73,17 +73,17 @@ This will accept any requests from the frontend which is hosting the webpage, or
     .
     ├── Backend
     │   ├── API_Gateways
-    │   ├── Student_Gateway.js (This file is used to provide the route for the student along with a precursory validation of the submitted information as part of the HTTP request)
-    ├── Helpers
-    │   ├── asyncHandler.js (This file contains code to allow express routes to handle async function calls)
-    ├── Services
-    │   └── Student
-    │       ├── Student_DB.js (This file would create transaction with a database if it existed, however instead it calls a decryption function to verify the padding of the ciphertext
-    │       ├── Student_Service.js (This file is used to seperate the database from the rest of the code in case additional work needs to be done)
-    ├── .env (contains all of the configurable information for the server)
-    ├── app.js (the file that launches the server along with creating the middleware for routing)
-    ├── package-lock.json
-    └── package.json
+    .   │   └── Student_Gateway.js (This file is used to provide the route for the student along with a precursory validation of the submitted information as part of the HTTP request)
+    .   ├── Helpers
+    .   │   └── asyncHandler.js (This file contains code to allow express routes to handle async function calls)
+        ├── Services
+        │   └── Student
+        │       ├── Student_DB.js (This file would create transaction with a database if it existed, however instead it calls a decryption function to verify the padding of the ciphertext
+        │       └── Student_Service.js (This file is used to seperate the database from the rest of the code in case additional work needs to be done)
+        ├── .env (contains all of the configurable information for the server)
+        ├── app.js (the file that launches the server along with creating the middleware for routing)
+        ├── package-lock.json
+        └── package.json
 
 ### .env
 The only file that the operator of the server should be concerned about in the backend would be the .env file which
@@ -107,32 +107,32 @@ This directory works to serve a user-friendly webpage that students can submit t
 
     .
     ├── Frontend
-    ├── public
-    │   ├── favicon.ico
-    │   ├── index.html
-    │   └── robots.txt
-    ├── src
-    │   ├── components
-    │   │   ├── InputComponent
-    │   │   │   └── index.js (contains the code to display the input field for the webpage)
-    │   │   └── index.js
-    │   ├── pages
-    │   │   ├── HomePage
-    │   │   │   └── index.js (calls the input component)
-    │   │   └── index.js
-    │   ├── utils
-    │   │   ├── css
-    │   │   │   ├── forms.css
-    │   │   │   ├── grid.css
-    │   │   │   ├── main.css
-    │   │   │   ├── modules.css
-    │   │   │   ├── style.css
-    │   │   │   └── type.css
-    │   │   └── utils.js (contains the necessary backend ip to address the backend server)
-    │   ├── App.js (stores all of the wbesite routes)
-    │   └── index.j
-    ├── package-lock.json
-    └── package.json
+    │   ├── public
+    .   │   ├── favicon.ico
+    .   │   ├── index.html
+    .   │   └── robots.txt
+        ├── src
+        │   ├── components
+        │   │   ├── InputComponent
+        │   │   │   └── index.js (contains the code to display the input field for the webpage)
+        │   │   └── index.js
+        │   ├── pages
+        │   │   ├── HomePage
+        │   │   │   └── index.js (calls the input component)
+        │   │   └── index.js
+        │   ├── utils
+        │   │   ├── css
+        │   │   │   ├── forms.css
+        │   │   │   ├── grid.css
+        │   │   │   ├── main.css
+        │   │   │   ├── modules.css
+        │   │   │   ├── style.css
+        │   │   │   └── type.css
+        │   │   └── utils.js (contains the necessary backend ip to address the backend server)
+        │   ├── App.js (stores all of the wbesite routes)
+        │   └── index.j
+        ├── package-lock.json
+        └── package.json
   
 ### utils.js
 The only file that the operator of the server should be concerned about in the frontend would be the utils.js file which
