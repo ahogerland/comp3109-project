@@ -1,6 +1,4 @@
 # COMP3109 Project Team P1 - Padding Oracle Attack
-- project preamble
-- explanation of a "Padding Oracle Attack" using CBC mode and the PKCS7 padding scheme
 
 ## Getting Started
 *This is a quick-start guide for running the server. See the [Oracle Server](#oracle-server) section for more information.*
@@ -58,6 +56,18 @@ print(validate(ciphertext))
 
 ## Ciphertext Generation
 An example generation script can be found in `Scripts/gen-poa-challenge.py`.
+
+*Important: the secret key and IV values used to encrypt the plaintext are printed to the console. These should be
+transferred to the Backend/.env file when used with the server.*
+
+```
+Usage: python ./gen_poa_challenge FILE_IN DIR_OUT NUMBER
+
+Args:
+  FILE_IN:   plaintext input file
+  DIR_OUT:   output directory
+  NUMBER:    number of challenge files to generate
+```
 
 ## Solution
 An example solution can be found in `Scripts/solution.py`.
