@@ -40,7 +40,7 @@ if __name__ == '__main__':
     if len(sys.argv) >= 4:
         gen_poa_challenge(sys.argv[1], sys.argv[2].rstrip('/\\'), int(sys.argv[3]))
     else:
-        print('Usage: python ./gen_poa_challenge FILE_IN DIR_OUT NUMBER')
+        print('Usage: python ./gen-poa-challenge.py FILE_IN DIR_OUT NUMBER')
         print('\nArgs:')
         print('  FILE_IN:   plaintext input file')
         print('  DIR_OUT:   output directory')

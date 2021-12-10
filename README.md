@@ -61,7 +61,7 @@ An example generation script can be found in `Scripts/gen-poa-challenge.py`.
 transferred to the Backend/.env file when used with the server.*
 
 ```
-Usage: python ./gen_poa_challenge FILE_IN DIR_OUT NUMBER
+Usage: python ./gen-poa-challenge.py FILE_IN DIR_OUT NUMBER
 
 Args:
   FILE_IN:   plaintext input file
