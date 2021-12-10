@@ -1,5 +1,6 @@
 require('dotenv').config()
 const CryptoJS = require("crypto-js");
+const crypto = require('crypto')
 
 /*
  Function checks if the secret matches the one belonging to the student
@@ -48,21 +49,35 @@ encryption = (plaintext, secret, secret_iv) => {
 */
 decryption = (ciphertext, secret, secret_iv) => {
     try {
-        ciphertext = ciphertext.split("=")[0]
+        const key = Buffer.from(secret, 'hex')
+        const iv = Buffer.from(secret_iv, 'hex')
 
-        const key = CryptoJS.enc.Utf8.parse(secret)
-        const iv = CryptoJS.enc.Utf8.parse(secret_iv)
+        const decipher = crypto.createDecipheriv('aes-128-cbc', key, iv)
+        const decrypted = decipher.update(ciphertext, 'hex', 'utf8')
 
-        const b64_decrypted = CryptoJS.enc.Hex.parse(ciphertext)
-        const bytes = b64_decrypted.toString(CryptoJS.enc.Base64)
-        const decrypted = CryptoJS.AES.decrypt(bytes, key, {iv: iv})
-        const plaintext = decrypted.toString(CryptoJS.enc.Utf8)
-
-        if (decrypted.sigBytes < 0) return {success: false, plaintext: plaintext}
-        return {success: true, plaintext: plaintext}
+        return {success: true, plaintext: decipher.final('utf8')}
     } catch (e) {
         return {error: e}
     }
 }
+
+//decryption = (ciphertext, secret, secret_iv) => {
+//    try {
+//        ciphertext = ciphertext.split("=")[0]
+//
+//        const key = CryptoJS.enc.Utf8.parse(secret)
+//        const iv = CryptoJS.enc.Utf8.parse(secret_iv)
+//
+//        const b64_decrypted = CryptoJS.enc.Hex.parse(ciphertext)
+//        const bytes = b64_decrypted.toString(CryptoJS.enc.Base64)
+//        const decrypted = CryptoJS.AES.decrypt(bytes, key, {iv: iv})
+//        const plaintext = decrypted.toString(CryptoJS.enc.Utf8)
+//
+//        if (decrypted.sigBytes < 0) return {success: false, plaintext: plaintext}
+//        return {success: true, plaintext: plaintext}
+//    } catch (e) {
+//        return {error: e}
+//    }
+//}
 
 

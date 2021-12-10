@@ -10,7 +10,7 @@ FILE_OUT = '../poa-cXXX.txt'
 BLOCK_SIZE = 16
 
 # oracle server information
-HOST = 'http://localhost:3000'
+HOST = 'http://localhost:3001'
 URL = f'{HOST}/student/attempt'
 
 
@@ -19,7 +19,7 @@ def xor(a, b):
 
 
 def validate(c1, c2):
-    return requests.post(URL, data={'ciphertext': (c1 + c2).hex()}).status_code < 500
+    return requests.post(URL, data={'secret': (c1 + c2).hex()}).status_code < 500
 
 
 def main():
